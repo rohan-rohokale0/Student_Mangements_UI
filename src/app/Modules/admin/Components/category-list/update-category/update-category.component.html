@@ -1,0 +1,55 @@
+<div class="dialog-content">
+    <h2 class="main-title">Update Category</h2>
+    <form [formGroup]="updateCategoryForm">
+      <div class="dialog-actions">
+        <div class="row">
+          <div class="col-lg-10 col-md-10 col-10 mt-2">
+            <tui-input formControlName="categoryName" label="Category Name"
+              >Category Name</tui-input
+            >
+            <div
+              *ngIf="
+                updateCategoryForm.get('categoryName')?.errors &&
+                updateCategoryForm.get('categoryName')?.touched
+              "
+              class="error-message"
+            >
+              <div *ngIf="updateCategoryForm.get('categoryName')?.errors?.required">
+                Category Name is required
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 mt-4">
+          <div class="row mt-2">
+            <div class="col-6">
+              <button
+                (click)="closeDialog(false)"
+                appearance="accent"
+                size="m"
+                tuiButton
+                type="button"
+                class="tui-space_right-3 tui-space_bottom-3"
+              >
+                Cancel
+              </button>
+            </div>
+            <div class="col-6 text-end">
+              <button
+                [disabled]="updateCategoryForm.invalid"
+                (click)="updateCategory(updateCategoryForm.value)"
+                appearance="primary"
+                tuiButton
+                size="m"
+                type="button"
+                class="tui-space_bottom-3"
+              >
+                Update
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  

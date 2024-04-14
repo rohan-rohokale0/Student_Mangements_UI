@@ -1,0 +1,12 @@
+.container-fluid {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+.content {
+  height: calc(100vh - 90px);
+  border-radius: 10px;
+  margin: 10px;
+  margin-left: 12px;
+  overflow: auto;
+}

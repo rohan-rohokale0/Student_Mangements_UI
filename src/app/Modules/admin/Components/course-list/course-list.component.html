@@ -1,0 +1,85 @@
+<div class="row ml-2">
+  <div class="col-lg-12">
+    <div class="card card-h-100">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12">
+            <div class="title-flex">
+              <h2 class="main-title">Course List</h2>
+              <div class="text-end ng-star-inserted">
+                <button
+                  tuiButton
+                  type="button"
+                  size="m"
+                  (click)="AddCourse()"
+                  class="tui-space_right-3 tui-space_bottom-3"
+                >
+                  Add Course
+                </button>
+              </div>
+            </div>
+            <hr class="title-line" />
+            <div class="col-12">
+              <ngx-datatable
+                class="material"
+                [rows]="studentList"
+                [columnMode]="'force'"
+                [limit]="5"
+                [headerHeight]="50"
+                [footerHeight]="50"
+                [rowHeight]="'auto'"
+              >
+                <ngx-datatable-column
+                  name="Course Name"
+                  prop="courseName"
+                ></ngx-datatable-column>
+                <ngx-datatable-column
+                name="Title"
+                prop="title"
+              ></ngx-datatable-column>
+                <ngx-datatable-column
+                  name="Category Name"
+                  prop="categoryName"
+                ></ngx-datatable-column>
+                <ngx-datatable-column name="Course Image" prop="courseImage">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      <img [src]="getBase64Image(value)" alt="Image" style="max-width: 100px; max-height: 100px;">
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column
+                  name="Description"
+                  prop="description"
+                ></ngx-datatable-column>
+
+                <ngx-datatable-column name="Price">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{ value | number: '1.2-2' }}
+                    </ng-template>
+                  </ngx-datatable-column>
+
+                <ngx-datatable-column name="Actions" prop="actions">
+                  <ng-template let-row="row" ngx-datatable-cell-template>
+                    <i
+                      class="bx bx-show icons-style"
+                      (click)="viewStudent(row)"
+                    ></i>
+                    &nbsp;
+                    <i
+                      class="bx bx-edit-alt icons-style"
+                      (click)="updateStudent(row)"
+                    ></i>
+                    &nbsp;
+                    <i
+                      class="bx bxs-trash icons-style"
+                      (click)="deleteStudent(row)"
+                    ></i>
+                  </ng-template>
+                </ngx-datatable-column>
+              </ngx-datatable>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

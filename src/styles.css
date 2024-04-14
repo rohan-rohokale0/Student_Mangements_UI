@@ -1,1 +1,204 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: opensans-regular;
+  src: url("./assets/fonts/fonts/OpenSans-Regular.ttf");
+}
+@font-face {
+  font-family: opensans-semibold;
+  src: url("./assets/fonts/fonts/opensans-semibold.ttf");
+}
+@font-face {
+  font-family: opensans-bold;
+  src: url("./assets/fonts/fonts/opensans-bold.ttf");
+}
+
+
+
+body {
+  font-family: opensans-regular;
+  width: 100%;
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
+  background-color: #fff;
+  font-size: 16px;
+  color: #333;
+}
+.header {
+  color: #1b1a1a;
+  font-weight: 300;
+  bottom: 10px;
+}
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.containers {
+  background: #fff;
+  border: 0.5px solid #d3d3d3;
+  border-radius: 4px;
+}
+.mat-mdc-form-field-error-wrapper {
+  position: absolute;
+  top: -23px !important;
+  left: 0;
+  right: 0;
+  padding: 0 16px;
+}
+.mt-2 {
+  margin-top: 2px;
+}
+
+.sign-up-link a {
+  text-decoration: none; /* Remove underline by default */
+  color: #333; /* Default color */
+}
+
+.sign-up-link a:hover {
+  text-decoration: underline; /* Add underline on hover */
+  color: #007bff;
+  cursor: pointer;
+}
+
+.card {
+  border: none;
+  border-radius: 0px;
+  margin-bottom: 1.5rem;
+  background-color: #ffffff;
+}
+.card-body {
+  padding: 1rem 0.5rem;
+}
+
+.mat-form-field {
+  height: 40px !important; /* Or any other height */
+}
+
+.mat-form-field .mat-input-element {
+  height: 20px !important; /* Adjust the input element height */
+  font-size: 14px !important; /* Optional: Adjust font size if needed */
+}
+
+.title-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title-line {
+  background-color: #eef4f7 !important;
+  margin-top: 0 !important;
+  opacity: 1;
+}
+.main-title {
+  font-size: 20px;
+  font-family: opensans-semibold;
+  margin-bottom: 1rem;
+  display: flex;
+  line-height: 1.0;
+}
+
+.card-h-100 {
+  height: calc(100% - 24px) !important;
+}
+
+.text-end {
+  text-align: right !important;
+}
+hr {
+  border-color: #d3d3d3 !important;
+}
+.pad-right-10 {
+  padding-right: 10px;
+}
+
+.login-page {
+  background-color: #f4f6f9;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.justify-content-center {
+  justify-content: center !important;
+}
+hr {
+  border-color: #d3d3d3 !important;
+}
+hr {
+  margin: 1rem 0;
+  color: inherit;
+  border: 0;
+  border-top: 1px solid;
+  opacity: 0.25;
+}
+.text-center {
+  text-align: center !important;
+}
+
+.user-profile {
+  padding: 20px 0;
+}
+.user-profile {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+.mb-4 {
+  margin-bottom: 1.5rem !important;
+}
+.dark-font {
+  color: #333 !important;
+}
+.semi-bold {
+  font-family: opensans-semibold !important;
+}
+.mb-1 {
+  margin-bottom: 0.25rem !important;
+}
+
+.dark-font {
+  color: #333 !important;
+}
+
+.semi-bold {
+  font-family: opensans-semibold !important;
+}
+.mb-1 {
+  margin-bottom: 0.25rem !important;
+}
+p {
+  font-size: 16px;
+  line-height: 25px;
+  color: #666;
+}
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+.curser-poiner {
+  cursor: pointer;
+}
+
+/* .mdc-text-field--outlined {
+  height: 51px !important;
+  overflow: visible;
+} */
+
+
+.error-message {
+  color: red;
+  margin-left: 10px;
+}
+
+.ngx-datatable.material .empty-row {
+  height: 50px;
+  text-align: center !important;
+}
+.t-remove {
+  opacity: 1 !important;
+}

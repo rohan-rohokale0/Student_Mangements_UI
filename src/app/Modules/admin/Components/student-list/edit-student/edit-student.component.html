@@ -1,0 +1,154 @@
+<div class="row">
+    <form [formGroup]="updateStudent">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-12">
+                  <div class="title-flex">
+                    <h2 class="main-title">
+                      <i class="bx bx-arrow-back" (click)="backToStudentList()"></i>
+                      Update Student
+                    </h2>
+                  </div>
+                  <hr class="title-line" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-12 mt-2">
+                  <tui-input formControlName="firstName">First Name</tui-input>
+                  <div
+                    *ngIf="
+                      updateStudent.get('firstName')?.errors?.required &&
+                      updateStudent.get('firstName')?.touched
+                    "
+                    class="error-message"
+                  >
+                    First name is required
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12 mt-2">
+                  <tui-input formControlName="lastName">Last Name</tui-input>
+                  <div
+                    *ngIf="
+                      updateStudent.get('lastName')?.errors?.required &&
+                      updateStudent.get('lastName')?.touched
+                    "
+                    class="error-message"
+                  >
+                    Last name is required
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12 mt-4">
+                  <tui-input formControlName="email">Email</tui-input>
+                  <div
+                    *ngIf="
+                      updateStudent.get('email')?.errors?.required &&
+                      updateStudent.get('email')?.touched
+                    "
+                    class="error-message"
+                  >
+                    Email is required
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12 mt-4">
+                  <tui-input formControlName="phoneNumber"
+                    >Phone Number</tui-input
+                  >
+                  <div
+                    *ngIf="
+                      updateStudent.get('phoneNumber')?.errors?.required &&
+                      updateStudent.get('phoneNumber')?.touched
+                    "
+                    class="error-message"
+                  >
+                    Phone Number is required
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12 mt-4">
+                  <tui-input formControlName="education">Education</tui-input>
+                  <div
+                    *ngIf="
+                      updateStudent.get('education')?.errors?.required &&
+                      updateStudent.get('education')?.touched
+                    "
+                    class="error-message"
+                  >
+                    Education is required
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12 mt-4">
+                  <tui-input formControlName="schoolName">School Name</tui-input>
+                  <div
+                    *ngIf="
+                      updateStudent.get('schoolName')?.errors?.required &&
+                      updateStudent.get('schoolName')?.touched
+                    "
+                    class="error-message"
+                  >
+                    School Name is required
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12 mt-4">
+                  <tui-input formControlName="address">Address</tui-input>
+                  <div
+                    *ngIf="
+                      updateStudent.get('address')?.errors?.required &&
+                      updateStudent.get('address')?.touched
+                    "
+                    class="error-message"
+                  >
+                    Address is required
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12 mt-4">
+                  <tui-input formControlName="city"
+                  >City</tui-input>
+                  <div
+                    *ngIf="
+                      updateStudent.get('city')?.errors?.required &&
+                      updateStudent.get('city')?.touched
+                    "
+                    class="error-message"
+                  >
+                    City is required
+                  </div>
+                </div>
+                <div class="col-12 mt-4">
+                  <div class="row mt-2">
+                    <div class="col-6">
+                      <button
+                        appearance="accent"
+                        size="m" (click)="backToStudentList()"
+                        tuiButton
+                        type="button"
+                        class="tui-space_right-3 tui-space_bottom-3"
+                      >
+                        Back
+                      </button>
+                    </div>
+                    <div class="col-6 text-end">
+                      <button
+                        appearance="primary" (click)="updateStudents(updateStudent.value)"
+                        tuiButton
+                        size="m"
+                        type="button"
+                        class="tui-space_bottom-3"
+                      >
+                        Update
+                      </button>
+                      <!-- <button mat-raised-button color="warn">Cancel</button>
+                      &nbsp;
+                      <button mat-raised-button color="primary" (click)="AddStudent()">Save</button> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  

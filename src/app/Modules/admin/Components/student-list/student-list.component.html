@@ -1,0 +1,97 @@
+<!-- <div class="card">
+  <div class="card-body">
+    <h3>Client-side Paging</h3>
+    <ngx-datatable
+      class="material"
+      [rows]="rows"
+      [columns]="[{ name: 'Name' }, { name: 'Gender' }, { name: 'Company' }]"
+      [columnMode]="ColumnMode.force"
+      [headerHeight]="50"
+      [footerHeight]="50"
+      rowHeight="auto"
+      [limit]="10"
+    >
+    </ngx-datatable>
+  </div>
+</div> -->
+
+<div class="row ml-2">
+  <div class="col-lg-12">
+    <div class="card card-h-100">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12">
+            <div class="title-flex">
+              <h2 class="main-title">Student List</h2>
+              <div class="text-end ng-star-inserted">
+                <button
+                  tuiButton
+                  type="button"
+                  size="m"
+                  (click)="AddStudent()"
+                  class="tui-space_right-3 tui-space_bottom-3">
+                  Add Student
+                </button>
+              </div>
+            </div>
+            <hr class="title-line" />
+            <div class="col-12">
+              <ngx-datatable
+                class="material"
+                [rows]="studentList"
+                [columnMode]="'force'"
+                [limit]="5"
+                [headerHeight]="50"
+                [footerHeight]="50"
+               
+                [rowHeight]="'auto'"
+              >
+                <ngx-datatable-column
+                  name="First Name"
+                  prop="firstName"
+                ></ngx-datatable-column>
+                <ngx-datatable-column
+                  name="Last Name"
+                  prop="lastName"
+                ></ngx-datatable-column>
+                <ngx-datatable-column
+                  name="Email"
+                  prop="email"
+                ></ngx-datatable-column>
+                <ngx-datatable-column
+                  name="Phone Number"
+                  prop="phoneNumber"
+                ></ngx-datatable-column>
+                <ngx-datatable-column
+                  name="Eduction"
+                  prop="education"
+                ></ngx-datatable-column>
+                <ngx-datatable-column
+                  name="School Name"
+                  prop="schoolName"
+                ></ngx-datatable-column>
+                <ngx-datatable-column name="Actions" prop="actions">
+                  <ng-template let-row="row" ngx-datatable-cell-template>
+                    <i class='bx bx-show icons-style'(click)="viewStudent(row)"></i>
+                    &nbsp;
+                    <i
+                      class="bx bx-edit-alt icons-style"
+                      (click)="updateStudent(row)"
+                    ></i>
+                    &nbsp;
+                    <i
+                      class="bx bxs-trash icons-style"
+                      (click)="deleteStudent(row)"
+                    ></i>
+
+                   
+                  </ng-template>
+                </ngx-datatable-column>
+              </ngx-datatable>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

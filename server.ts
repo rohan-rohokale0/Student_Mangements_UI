@@ -20,9 +20,12 @@ export function app(): express.Express {
   // Example Express Rest API endpoints
   // server.get('/api/**', (req, res) => { });
   // Serve static files from /browser
-  server.get('*.*', express.static(browserDistFolder, {
-    maxAge: '1y'
-  }));
+  server.get(
+    '*.*',
+    express.static(browserDistFolder, {
+      maxAge: '1y',
+    })
+  );
 
   // All regular routes use the Angular engine
   server.get('*', (req, res, next) => {
@@ -39,6 +42,19 @@ export function app(): express.Express {
       .then((html) => res.send(html))
       .catch((err) => next(err));
   });
+
+  (global as any)['requestAnimationFrame'] = function (
+    callback: (time: number) => void
+  ) {
+    const currTime = new Date().getTime();
+    return setTimeout(() => {
+      callback(currTime);
+    }, 0);
+  };
+
+  (global as any)['cancelAnimationFrame'] = function (id: any) {
+    clearTimeout(id);
+  };
 
   return server;
 }

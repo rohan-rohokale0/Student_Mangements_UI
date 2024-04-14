@@ -1,0 +1,259 @@
+<div class="row">
+  <form [formGroup]="addStudentForm">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12">
+                <div class="title-flex">
+                  <h2 class="main-title">
+                    <i
+                      class="bx bx-arrow-back"
+                      (click)="backToCourseList()"
+                    ></i>
+                    Add Course
+                  </h2>
+                </div>
+                <hr class="title-line" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-12 mt-2">
+                <tui-input formControlName="title">Title</tui-input>
+                <div
+                  *ngIf="
+                    addStudentForm.get('title')?.errors?.required &&
+                    addStudentForm.get('title')?.touched
+                  "
+                  class="error-message"
+                >
+                  Title is required
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-12 mt-2">
+                <tui-input formControlName="courseName">Course Name</tui-input>
+                <div
+                  *ngIf="
+                    addStudentForm.get('courseName')?.errors?.required &&
+                    addStudentForm.get('courseName')?.touched
+                  "
+                  class="error-message"
+                >
+                  Course Name is required
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-12 mt-4">
+                <tui-input formControlName="teacherName"
+                  >Teacher Name</tui-input
+                >
+                <div
+                  *ngIf="
+                    addStudentForm.get('teacherName')?.errors?.required &&
+                    addStudentForm.get('teacherName')?.touched
+                  "
+                  class="error-message"
+                >
+                  Teacher Name is required
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-12 mt-4">
+                <tui-select
+                  formControlName="categoryName"
+                  [stringify]="stringify"
+                >
+                  Category Name
+                  <input placeholder="Select Category Name" tuiTextfield />
+                  <tui-data-list-wrapper
+                    *tuiDataList
+                    [items]="categoryList"
+                  ></tui-data-list-wrapper>
+                </tui-select>
+
+                <div
+                  *ngIf="
+                    addStudentForm.get('categoryName')?.errors?.required &&
+                    addStudentForm.get('categoryName')?.touched
+                  "
+                  class="error-message"
+                >
+                  Category Name is required
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-12 mt-4">
+                <tui-input formControlName="price" type="number"
+                  >Price</tui-input
+                >
+                <div
+                  *ngIf="
+                    addStudentForm.get('price')?.errors?.required &&
+                    addStudentForm.get('price')?.touched
+                  "
+                  class="error-message"
+                >
+                  Price is required
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-12 mt-4">
+                <!-- <div
+                  *ngIf="!imageSrc"
+                  class="drop-area"
+                  fxLayout="column"
+                  fxLayoutAlign="center center"
+                >
+                  <i class="bx bx-cloud-upload drop-area__icon"></i>
+                  <h2>Drag and drop your files here</h2>
+                  <span>or</span>
+                  <div class="file-loader">
+                    <input
+                      class="file-loader__input"
+                      type="file"
+                      multiple
+                      (change)="onFileSelected($event)"
+                      #fileInput
+                    />
+                    <button
+                      appearance="primary"
+                      class="file-loader__button"
+                      (click)="fileInput.click()"
+                      tuiButton
+                      size="m"
+                      type="button"
+                      class="tui-space_bottom-3"
+                    >
+                      Browse Files
+                    </button>
+                  </div>
+                </div>
+
+                <div
+                  *ngIf="imageSrc"
+                  class="drop-area"
+                  fxLayout="column"
+                  style="position: relative"
+                  fxLayoutAlign="center center"
+                >
+                  <img
+                    *ngIf="imageSrc"
+                    [src]="imageSrc"
+                    class="preview-image"
+                  />
+                  <i
+                    class="bx bx-x bx-tada bx-flip-vertical close-icon"
+                    (click)="closeImage()"
+                  ></i>
+                </div> -->
+
+                <!-- <tui-input-files
+                  accept="image/*"
+                 formControlName="courseImage"
+                  [multiple]="true"
+                  (change)="onFileChange($event)"
+                  (ngModelChange)="addStudentForm.get('courseImage')?.markAsTouched()"
+                  (reject)="onReject($event)"
+                  (change)="onFileChange($event)"
+                ></tui-input-files>
+                <tui-files class="tui-space_top-1">
+                  <tui-file
+                    *ngFor="let file of addStudentForm.get('courseImage')?.valueChanges | async"
+                    [file]="file"
+                    [showDelete]="control.enabled"
+                    (removed)="removeFile(file)"
+                  ></tui-file>
+
+                  <tui-file
+                    *ngFor="let file of rejectedFiles"
+                    state="error"
+                    [file]="file"
+                    [showDelete]="control.enabled"
+                    (removed)="clearRejected(file)"
+                  ></tui-file>
+                </tui-files>
+
+                <tui-error
+                  [error]="['maxLength'] | tuiFieldError | async"
+                  [formControl]="control"
+                ></tui-error> -->
+
+                <tui-input-files
+                  *ngIf="!addStudentForm.get('courseImage')?.value"
+                  formControlName="courseImage"
+                >
+                  <input
+                    accept="image/*"
+                    capture="user"
+                    title="Choose files (no limits)"
+                    tuiInputFiles
+                    (change)="onFileChange()"
+                  />
+                </tui-input-files>
+
+                <tui-files class="tui-space_top-1">
+                  <tui-file
+                    *ngIf="
+                      addStudentForm.get('courseImage')?.valueChanges
+                        | async as file
+                    "
+                    [file]="file"
+                    (removed)="removeFile()"
+                  ></tui-file>
+                </tui-files>
+              </div>
+
+              <div class="col-lg-6 col-md-6 col-12 mt-4">
+                <tui-textarea
+                  formControlName="description"
+                  class="field-medium"
+                  [expandable]="true"
+                  [maxLength]="30"
+                >
+                  Course Descriptions
+                </tui-textarea>
+
+                <div
+                  *ngIf="
+                    addStudentForm.get('description')?.errors?.required &&
+                    addStudentForm.get('description')?.touched
+                  "
+                  class="error-message"
+                >
+                  Descriptions is required
+                </div>
+              </div>
+
+              <div class="col-12 mt-4">
+                <div class="row mt-2">
+                  <div class="col-6">
+                    <button
+                      appearance="accent"
+                      size="m"
+                      (click)="backToCourseList()"
+                      tuiButton
+                      type="button"
+                      class="tui-space_right-3 tui-space_bottom-3"
+                    >
+                      Back
+                    </button>
+                  </div>
+                  <div class="col-6 text-end">
+                    <button
+                      appearance="primary"
+                      [disabled]="addStudentForm.invalid"
+                      (click)="addStudent(addStudentForm.value)"
+                      tuiButton
+                      size="m"
+                      type="button"
+                      class="tui-space_bottom-3"
+                    >
+                      Save
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
